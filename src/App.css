@@ -1,38 +1,231 @@
 .App {
-  text-align: center;
+  background-color: #F3D2C1;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Outfit;
+}
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.central-container {
+  position: relative;
+  width: 881px;
+  height: 604px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 256px;
+
+  background: #FEF6E4;
+  border-radius: 7px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.titleRow {
   display: flex;
-  flex-direction: column;
+  margin-bottom: 28px;
+}
+
+.ellipse-1 {
+  position: relative;
+  width: 77px;
+  height: 77px;
+  margin-top: 108px;
+  margin-left: 94px;
+  margin-bottom: 0;
+  
+  background: linear-gradient(135.73deg, #F582AE -9.21%, #8BD3DD 92.11%);
+  border: 2px solid #DE1919;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 87px;
+  line-height: 110px;
+}
+
+.title {
+  position: relative;
+  margin-left: 38px;
+  margin-top: 95px;
+  margin-bottom: 0;
+  margin-right: auto;
+}
+
+.description-dirt {
+  position: relative;
+  width: 688px;
+  height: 65px;
+  margin: 0 93px 71px 100px;
+  
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  /* or 125% */
+
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #172C66;
 }
 
-.App-link {
-  color: #61dafb;
+.input-container {
+  display: grid; 
+  grid-template-columns: 0.9fr 1.1fr; 
+  grid-template-rows: 0.6fr 1.4fr; 
+  gap: 11% 3%; 
+  grid-template-areas: 
+    "input-value transfer-back"
+    "to-user transfer-back"; 
+
+  /* // Space styling */
+  margin: 71px 93px 0px 100px;
+  width: 688px;
+  height: 160px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+.to-user {
+  grid-area: to-user;
+  background: #F582AE;
+  border-radius: 4px;
+  border: 0px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+  font-style: semi-bold;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 0px;
+  /* or 0% */
+  text-align: center;
+  transition: 0.6s;
+
+  color: #001858;
+}
+
+.connect-wallet {
+  grid-area: transfer-back;
+  background: #8BD3DD;
+  border-radius: 4px;
+  border: 0px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 0px;
+  /* or 0% */
+  transition: 0.4s;
+  color: #001858;
+}
+
+
+
+#connect:active {
+  transform: translateX(-4px) translateY(6px);
+  /* Scaling button to 0.98 to its original size */
+  transition: 0.2s;
+  box-shadow: -7px 7px 15px 0px rgba(0,0,0,0.25);
+  /* Lowering the shadow */
+}
+
+#connect:hover {
+  transform: translateX(4px) translateY(-6px);
+}
+
+
+#give:active {
+  transform: translateX(-4px) translateY(6px);
+  /* Scaling button to 0.98 to its original size */
+  transition: 0.2s;
+  box-shadow: -7px 7px 15px 0px rgba(0,0,0,0.25);
+  /* Lowering the shadow */
+}
+
+#give:hover {
+  transform: translateX(4px) translateY(-6px);
+}
+
+
+.container-bottom-row {
+  margin-top: 4%;
+  margin-left: 100px;
+  margin-right: 92px;
+  display: flex;
+}
+
+.description-address {
+  font-family: Futura;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 30px;
+  color: rgba(0, 24, 88, 0.37);
+}
+
+.description-copyright {
+  /* positioning */
+  margin-left: auto;
+  text-align: right;
+  color: rgba(0, 24, 88, 0.37);
+
+  font-family: Futura;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 30px;
+  /* or 250% */
+
+}
+
+.gray {
+  color: rgba(0, 24, 88, 0.37);
+}
+
+
+.input-value {
+  grid-area: input-value;
+  background: #F3D2C1;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 0px;
+  /* or 0% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #001858;
+  outline: none;
+
+  width: 100%;
+  padding: 12px 20px;
+  
+  box-sizing: border-box;
+  border: 3px solid aliceblue;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+#input:focus {
+  border: 3px solid #172c66;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
