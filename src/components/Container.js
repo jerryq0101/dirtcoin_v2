@@ -21,7 +21,6 @@ function Container() {
         console.log("handleConnect ran")
 
         // load Address;
-
         setTimeout(()=>{
             getAddress(provider1);
         }, 1500)
@@ -69,17 +68,33 @@ function Container() {
         const signer = pro.getSigner();
         signer.getAddress().then(addy => {
             setAddress(addy)
+            console.log(address)
         })
 
         setTimeout(()=>{
             addTokenMetamask();
         }, 1500)
-        
     }
+
+    window.ethereum.on('accountsChanged', function (accounts) {
+        if (accounts.length >= 1){
+            setAddress(accounts[0]);
+            console.log(accounts);
+        } else {
+            setTimeout(()=>{
+                if (!address ){
+                    window.ethereum.enable()
+                }
+            }, 200)
+            console.log("Accounts Array is empty, what is going on")
+        }
+    })
 
     const [hash, setHash] = useState();
 
     async function handleTx(){
+
+        
         const signer = provider.getSigner();
         console.log(signer)
         const myAddress = await signer.getAddress();
@@ -114,7 +129,7 @@ function Container() {
             </div>
             
             <p className="description-dirt">
-                dirtCoin is a coin that you can mint at anytime really. You press the button and this colorful little token appears in your account.
+                dirtCoin is a coin that you can mint at anytime. You press the button and this colorful little token appears in your account.
             </p>
 
             <div className="input-container">
@@ -135,12 +150,13 @@ function Container() {
                 {address &&
                 <div className="description-address">
                     {address}
-                </div>
+                </div> 
                 } 
+                
                 <div className="description-copyright">
                     {
                         hash ? 
-                           <a className="gray" target="_blank" href={`https://rinkeby.etherscan.io/tx/${hash}`}>your tx hash i guess</a> : "jerry project 2:)" 
+                           <a className="gray" target="_blank" href={`https://rinkeby.etherscan.io/tx/${hash}`}>your tx hash i guess</a> : "made by jerry using dirt" 
                     }
                 </div>
             </div>

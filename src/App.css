@@ -5,6 +5,7 @@
 
 body {
   font-family: Outfit;
+  overscroll-behavior: none;
 }
 html {
   scroll-behavior: smooth;
