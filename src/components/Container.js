@@ -14,7 +14,7 @@ function Container() {
             switchNetMetamask();
         }, 300)
     }, [])
-    
+
     async function handleConnect() {
         const provider1 = new ethers.providers.Web3Provider(window.ethereum)
         setProvider(provider1);
@@ -93,8 +93,6 @@ function Container() {
     const [hash, setHash] = useState();
 
     async function handleTx(){
-
-        
         const signer = provider.getSigner();
         console.log(signer)
         const myAddress = await signer.getAddress();
